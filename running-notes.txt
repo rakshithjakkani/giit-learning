@@ -1,8 +1,11 @@
+* git remote set-url origin https://<git-user-name>@<your-remote-url>----> then vscode prompt for password, enter the password.
 * git init-----> command to initialize the repo 
-* git remote add origin <repoURL> ----------> to add your repo to command line
+* git remote add origin <repoURL> ----------> to add your repo to command line..... origin is the name of your remote repo,local identifier of remote repo. you can mention any name in the place of origin.
 * git commit -m 'your commit messege'--------> to commit the changes to your local repo 
 * git push----> to push the file to remote repo 
 * git push --set-upstream origin <branchName>---> to push the changes to particular branch
+* git push origin main-----> origin=local identifier, main=local branch that means from which branch you want push the code. if the main branch
+  is not created in remote repo. By this command the "main" branch will be created. 
 * git add <filename>-----> to add the file to repo 
 * git log -----> to get latest commits 
 * git revert <commit-ID>-----> to undo the last commit 
