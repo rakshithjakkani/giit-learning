@@ -1,0 +1,5 @@
+* git init-----> command to initialize the repo 
+* git remote add origin <repoURL> ----------> to add your repo to command line
+* git commit -m 'your commit messege'--------> to commit the changes to your local repo 
+* git push origin
+* git add <filename>-----> to add the file to repo 
