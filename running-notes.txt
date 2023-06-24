@@ -5,3 +5,10 @@
 * git add <filename>-----> to add the file to repo 
 * git log -----> to get latest commits 
 * git revert <commit-ID>-----> to undo the last commit 
+* create file called ".gitignore" and in that file mention your file name so that the file will be ignore when "git add ." runned.
+* git branch <branchName>----> to create a new branch 
+* git checkout -b <branchName>----> to create new branch and switch to that branch as well
+* git merge <branchName>-----> to merge the branches 
+* git checkout <branchName>----> to switch to the particular branch 
+* if you run "git log" in any branch, we can see that all commits that we did 
+* 
