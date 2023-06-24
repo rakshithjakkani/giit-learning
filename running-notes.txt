@@ -3,3 +3,5 @@
 * git commit -m 'your commit messege'--------> to commit the changes to your local repo 
 * git push----> to push the file to remote repo 
 * git add <filename>-----> to add the file to repo 
+* git log -----> to get latest commits 
+* git revert <commit-ID>-----> to undo the last commit 
