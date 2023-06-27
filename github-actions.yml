@@ -1,0 +1,47 @@
+name: test action
+on:
+  pull_request:
+    types:
+      - opened:
+    branches:
+      - 'master'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the repo
+        uses: actions/checkout@v3
+      - name: install npm  
+        run: npm ci
+      - name: running unit test
+        run: npm run test
+# when we want to upload artifact in this pipeline in that case we can use this option 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files
+# when you want to upload mutliple files form 
+          path: |
+            dist
+            package.json
+  build: 
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: build the application 
+        run: npm run build
+      - name: string pass
+        run: echo "build success"
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with: 
+           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+           aws-region: us-east-2
+      - name: Copy files to the test website with the AWS CLI
+        run: |
+          aws s3 sync . s3://<your-bucket-name>
